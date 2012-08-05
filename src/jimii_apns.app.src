@@ -1,0 +1,9 @@
+%% -*- erlang -*-
+{application, jimii_apns,
+ [{description, "jimii_apns"},
+  {vsn, "0.1"},
+  {modules, []},
+  {registered, []},
+  {mod, {'jimii_apns_app', []}},
+  {env, []},
+  {applications, [kernel, stdlib, crypto, apns]}]}.
