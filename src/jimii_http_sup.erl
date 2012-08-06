@@ -40,7 +40,7 @@ start_link() ->
 %% specifications.
 %%--------------------------------------------------------------------
 init([]) ->
-    Web = web_specs(jimii_apns_web, 8080),
+    Web = web_specs(jimii_apns_web, 6907),
     Processes = [Web],
     Strategy = {one_for_one, 10, 10},
     {ok,

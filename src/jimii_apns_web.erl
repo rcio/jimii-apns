@@ -52,13 +52,11 @@ post_process(Req) ->
     Token = proplists:get_value("token", PostData, []),
     Badge = proplists:get_value("badge", PostData, 0),
     Msg = proplists:get_value("message", PostData, []),
-
     case Token of
 	[] ->
 	    Req:respond({500, [], []});
 	_ ->
-	    apns:send_message(Msg, list_to_integer(Badge), Token),
+	    apns:send_message(unicode:characters_to_list(list_to_binary(Msg)), list_to_integer(Badge), Token),
 	    Req:respond({200, [], []})
-    end,
-    error_logger:info_msg("~p", [PostData]).
+    end.
 
